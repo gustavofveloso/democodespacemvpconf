@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: dev
-      url: 'www.gustavofarias.demourl.com.br'
+      url: 'www.gustavofarias.com.br'
     needs: build
     steps:
       - name: Run a multi-line script
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: hmg
-      url: 'www.gustavofarias.demourl.com.br'
+      url: 'www.gustavofarias.com.br'
     needs: deploy-dev
     steps:
       - name: Run a multi-line script
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: prd
-      url: 'www.gustavofarias.demourl.com.br'
+      url: 'www.gustavofarias.com.br'
     needs: deploy-hmg
     steps:
       - name: Run a multi-line script
