@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a multi-line script
+        run: echo Deploy concluido.
+  
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
+      url: 'www.gustavofarias.demourl.com.br'
+    needs: build
+    steps:
+      - name: Run a multi-line script
+        run: echo Deploy Dev.
+        
+  deploy-hmg:
+    runs-on: ubuntu-latest
+    environment:
+      name: hmg
+      url: 'www.gustavofarias.demourl.com.br'
+    needs: deploy-dev
+    steps:
+      - name: Run a multi-line script
+        run: echo Deploy Homologacao.
+        
+  deploy-prd:
+    runs-on: ubuntu-latest
+    environment:
+      name: prd
+      url: 'www.gustavofarias.demourl.com.br'
+    needs: deploy-hmg
+    steps:
+      - name: Run a multi-line script
+        run: echo Deploy Producao.
